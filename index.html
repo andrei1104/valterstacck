@@ -175,12 +175,23 @@ section{padding:clamp(80px,11vw,150px) 0;}
   color:rgba(242,233,218,.6);z-index:2;
 }
 @media(max-width:700px){
-  .hero-bg img{object-position:60% 26%;}
+  /* Stack: photo framed on top, text below on dark — no text over faces */
+  .hero{min-height:auto;display:block;}
+  .hero-bg{position:relative;height:46svh;}
+  .hero-bg img{object-position:50% 32%;}
   .hero-bg::after{
     background:
-      linear-gradient(180deg, rgba(20,8,12,.5) 0%, rgba(20,8,12,.32) 26%, rgba(20,8,12,.8) 52%, rgba(20,8,12,.95) 68%, rgba(20,8,12,.99) 100%);
+      linear-gradient(180deg, rgba(20,8,12,.12) 0%, rgba(20,8,12,0) 40%, rgba(20,8,12,.6) 84%, var(--wine) 100%);
   }
-  .hero-inner{padding-top:120px;}
+  .hero-inner{
+    background:var(--wine);
+    padding-top:26px;
+    padding-bottom:44px;
+  }
+  .hero h1{font-size:clamp(2.1rem,9vw,3rem);margin-bottom:1.1rem;}
+  .hero .lead{margin-bottom:1.8rem;}
+  .hero-cta{flex-direction:column;align-items:stretch;}
+  .hero-cta .btn{justify-content:center;text-align:center;}
   .hero-scroll{display:none;}
 }
 
@@ -1575,7 +1586,7 @@ function Hero() {
       </div>
       <div className="wrap hero-inner">
         <p className="eyebrow" style={{ color: 'var(--gold-soft)' }}>Enoturismo Privado · Santa Catarina</p>
-        <h1>Conheça os vinhos de Santa&nbsp;Catarina com quem <em>abre todas as portas.</em></h1>
+        <h1>Conheça os vinhos de Santa&nbsp;Catarina com quem <em>abre as portas das melhores vinícolas.</em></h1>
         <p className="lead">
           Sommelier, viajante e contador de histórias. Valter Staack conduz você pelas
           vinícolas da Serra Catarinense — dos vinhos de altitude de São Joaquim aos vales
